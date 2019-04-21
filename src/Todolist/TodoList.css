@@ -1,0 +1,60 @@
+.app{
+  padding: 20px;
+}
+
+.app .back-btn{
+  margin-left: 10px;
+}
+
+.app .add input{
+  width: 180px;
+  height: 24px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  padding-left: 5px;
+}
+
+.app .add button{
+  cursor: pointer;
+  width: 60px;
+  height: 26px;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+.app .list{
+  list-style-type: none;
+}
+
+.app .list .completed{
+  text-decoration: line-through;
+}
+
+.app .list .todo-text{
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.app .list button{
+  cursor: pointer;
+  color: red;
+  background-color: #fff;
+}
+
+.app .filter button{
+  margin-right: 10px;
+  cursor: pointer;
+  width: 60px;
+  height: 28px;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+.app .filter button[disabled]{
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
