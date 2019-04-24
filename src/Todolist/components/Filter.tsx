@@ -3,8 +3,8 @@ import {SFC} from 'react';
 import '../TodoList.css';
 
 interface IProps {
-  readonly filterType: any;
-  readonly handleChangeFilter: any;
+  readonly filterType: 0|1|-1;
+  readonly handleChangeFilter: (filterType: 0|1|-1)=>void;
 }
 
 const Filter: SFC<IProps> = ({filterType, handleChangeFilter}) => (

@@ -22,7 +22,7 @@ interface ITodo {
 }
 
 export default class Todolist extends Component<IProps, IState> {
-  constructor(props:any) {
+  constructor(props:IProps) {
     super(props);
     this.state = {
       todos: [
@@ -35,13 +35,13 @@ export default class Todolist extends Component<IProps, IState> {
     }
   }
 
-  handleInputChange = (e:any) => {
+  handleInputChange = (e:React.ChangeEvent):void => {
     this.setState({
-      inputValue: e.target.value,
+      inputValue: (e.target as HTMLInputElement).value,
     })
   }
 
-  handleAddTodo = () => {
+  handleAddTodo = ():void => {
     if(!this.state.inputValue)return;
     this.setState({
       todos: [
@@ -52,7 +52,7 @@ export default class Todolist extends Component<IProps, IState> {
     });
   }
 
-  handleStatusChange = (index:number) => {
+  handleStatusChange = (index:number):void => {
     const newTodos = [...this.state.todos];
     newTodos[index] = {
       ...newTodos[index],
@@ -63,7 +63,7 @@ export default class Todolist extends Component<IProps, IState> {
     });
   }
 
-  handleDelete = (index:number) => {
+  handleDelete = (index:number):void => {
     const newTodos = [...this.state.todos];
     newTodos[index] = {
       ...newTodos[index],
@@ -74,7 +74,7 @@ export default class Todolist extends Component<IProps, IState> {
     });
   }
 
-  handleChangeFilter = (filterType:any) => {
+  handleChangeFilter = (filterType:0|1|-1):void => {
     this.setState({ filterType });
   }
 
@@ -88,7 +88,7 @@ export default class Todolist extends Component<IProps, IState> {
     }
   }
 
-  componentDidUpdate(oldProps:any, oldState:any){
+  componentDidUpdate(oldProps:IProps, oldState:IState){
     if(oldState.todos !== this.state.todos){
       window.localStorage.setItem("todos", JSON.stringify(this.state.todos));
     }

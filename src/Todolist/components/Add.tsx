@@ -4,8 +4,8 @@ import '../TodoList.css';
 
 interface IProps {
   readonly inputValue: string;
-  readonly handleInputChange: any;
-  readonly handleAddTodo: any;
+  readonly handleInputChange: (e:React.ChangeEvent)=>void;
+  readonly handleAddTodo: ()=>void;
 }
 
 const Add:SFC<IProps> = ({inputValue, handleInputChange, handleAddTodo}) => (
