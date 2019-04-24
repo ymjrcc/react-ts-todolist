@@ -1,7 +1,13 @@
-import React from 'react';
+import * as React from 'react';
+import {SFC} from 'react';
 import '../TodoList.css';
 
-const Filter = ({filterType, handleChangeFilter}) => (
+interface IProps {
+  readonly filterType: any;
+  readonly handleChangeFilter: any;
+}
+
+const Filter: SFC<IProps> = ({filterType, handleChangeFilter}) => (
   <p className="filter">
       <button 
       disabled={filterType===0} 

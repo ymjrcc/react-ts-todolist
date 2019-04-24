@@ -1,11 +1,28 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import { Component } from 'react';
 import Add from './components/Add';
 import Todos from './components/Todos';
 import Filter from './components/Filter';
 import './TodoList.css';
 
-export default class Todolist extends Component {
-  constructor(props) {
+interface IProps {
+
+}
+
+interface IState {
+  todos: Array<ITodo>;
+  inputValue: string;
+  filterType: 0|1|-1;
+}
+
+interface ITodo {
+  text: string;
+  completed: boolean;
+  deleted?: boolean;
+}
+
+export default class Todolist extends Component<IProps, IState> {
+  constructor(props:any) {
     super(props);
     this.state = {
       todos: [
@@ -18,7 +35,7 @@ export default class Todolist extends Component {
     }
   }
 
-  handleInputChange = e => {
+  handleInputChange = (e:any) => {
     this.setState({
       inputValue: e.target.value,
     })
@@ -35,7 +52,7 @@ export default class Todolist extends Component {
     });
   }
 
-  handleStatusChange = index => {
+  handleStatusChange = (index:number) => {
     const newTodos = [...this.state.todos];
     newTodos[index] = {
       ...newTodos[index],
@@ -46,7 +63,7 @@ export default class Todolist extends Component {
     });
   }
 
-  handleDelete = index => {
+  handleDelete = (index:number) => {
     const newTodos = [...this.state.todos];
     newTodos[index] = {
       ...newTodos[index],
@@ -57,7 +74,7 @@ export default class Todolist extends Component {
     });
   }
 
-  handleChangeFilter = filterType => {
+  handleChangeFilter = (filterType:any) => {
     this.setState({ filterType });
   }
 
@@ -71,7 +88,7 @@ export default class Todolist extends Component {
     }
   }
 
-  componentDidUpdate(oldProps, oldState){
+  componentDidUpdate(oldProps:any, oldState:any){
     if(oldState.todos !== this.state.todos){
       window.localStorage.setItem("todos", JSON.stringify(this.state.todos));
     }
@@ -100,5 +117,3 @@ export default class Todolist extends Component {
     );
   }
 }
-
-// 生命周期

@@ -1,2 +1,2 @@
-import Todolist from './Todolist.js';
+import Todolist from './Todolist';
 export default Todolist;
