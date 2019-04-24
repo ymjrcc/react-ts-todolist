@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import Add from './components/Add';
 import Todos from './components/Todos';
 import Filter from './components/Filter';
