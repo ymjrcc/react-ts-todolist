@@ -4,6 +4,8 @@ import Todos from './components/Todos';
 import Filter from './components/Filter';
 import './TodoList.css';
 
+type FilterType = 0|1|-1;
+
 interface IProps {
 
 }
@@ -11,7 +13,7 @@ interface IProps {
 interface IState {
   todos: Array<ITodo>;
   inputValue: string;
-  filterType: 0|1|-1;
+  filterType: FilterType;
 }
 
 interface ITodo {
@@ -73,7 +75,7 @@ export default class Todolist extends Component<IProps, IState> {
     });
   }
 
-  handleChangeFilter = (filterType:0|1|-1):void => {
+  handleChangeFilter = (filterType:FilterType):void => {
     this.setState({ filterType });
   }
 

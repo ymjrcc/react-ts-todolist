@@ -2,9 +2,11 @@ import React from 'react';
 import {SFC} from 'react';
 import '../TodoList.css';
 
+type FilterType = 0|1|-1;
+
 interface IProps {
   readonly todos: Array<ITodo>;
-  readonly filterType: 0|1|-1;
+  readonly filterType: FilterType;
   readonly handleStatusChange: (index:number)=>void;
   readonly handleDelete: (index:number)=>void;
 }

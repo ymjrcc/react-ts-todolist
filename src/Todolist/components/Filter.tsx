@@ -1,9 +1,11 @@
 import React, { SFC } from 'react';
 import '../TodoList.css';
 
+type FilterType = 0|1|-1;
+
 interface IProps {
-  readonly filterType: 0|1|-1;
-  readonly handleChangeFilter: (filterType: 0|1|-1)=>void;
+  readonly filterType: FilterType;
+  readonly handleChangeFilter: (filterType: FilterType)=>void;
 }
 
 const Filter: SFC<IProps> = ({filterType, handleChangeFilter}) => (
