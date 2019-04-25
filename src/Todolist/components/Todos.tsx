@@ -2,7 +2,11 @@ import React from 'react';
 import {SFC} from 'react';
 import '../TodoList.css';
 
-type FilterType = 0|1|-1;
+enum FilterType {
+  All = 1,
+  Completed,
+  NotCompleted
+}
 
 interface IProps {
   readonly todos: Array<ITodo>;
@@ -21,8 +25,8 @@ const Todos: SFC<IProps> = ({todos, filterType, handleStatusChange, handleDelete
   <ul className="list">
     {todos
       .filter((i:ITodo) => {
-        if(filterType===1) return i.completed;
-        else if(filterType===-1) return !i.completed;
+        if(filterType===FilterType.Completed) return i.completed;
+        else if(filterType===FilterType.NotCompleted) return !i.completed;
         else return true;
       })
       .map((item:ITodo,index:number) => (

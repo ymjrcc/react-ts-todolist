@@ -4,7 +4,11 @@ import Todos from './components/Todos';
 import Filter from './components/Filter';
 import './TodoList.css';
 
-type FilterType = 0|1|-1;
+enum FilterType {
+  All = 1,
+  Completed,
+  NotCompleted
+}
 
 interface IProps {
 
@@ -32,7 +36,7 @@ export default class Todolist extends Component<IProps, IState> {
         {text: '待办3', completed: true},
       ],
       inputValue: '',
-      filterType: 0, //0: 全部; 1: 已完成; -1: 未完成;
+      filterType: FilterType.All,
     }
   }
 

@@ -1,7 +1,11 @@
 import React, { SFC } from 'react';
 import '../TodoList.css';
 
-type FilterType = 0|1|-1;
+enum FilterType {
+  All = 1,
+  Completed,
+  NotCompleted
+}
 
 interface IProps {
   readonly filterType: FilterType;
@@ -11,16 +15,16 @@ interface IProps {
 const Filter: SFC<IProps> = ({filterType, handleChangeFilter}) => (
   <p className="filter">
       <button 
-      disabled={filterType===0} 
-      onClick={() => handleChangeFilter(0)}
+      disabled={filterType===FilterType.All} 
+      onClick={() => handleChangeFilter(FilterType.All)}
     >全部</button>
     <button 
-      disabled={filterType===1} 
-      onClick={() => handleChangeFilter(1)}
+      disabled={filterType===FilterType.Completed} 
+      onClick={() => handleChangeFilter(FilterType.Completed)}
     >已完成</button>
     <button 
-      disabled={filterType===-1} 
-      onClick={() => handleChangeFilter(-1)}
+      disabled={filterType===-FilterType.NotCompleted} 
+      onClick={() => handleChangeFilter(FilterType.NotCompleted)}
     >未完成</button>
   </p>
 )
